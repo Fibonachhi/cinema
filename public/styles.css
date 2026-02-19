@@ -459,6 +459,17 @@ main {
   color: var(--err);
 }
 
+.legal-footer {
+  width: min(1220px, 100% - 40px);
+  margin: 0 auto 24px;
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+  color: var(--muted);
+  font-size: 13px;
+  position: relative;
+  z-index: 3;
+}
+
 .modal.hidden {
   display: none;
 }
@@ -590,5 +601,9 @@ main {
 
   .hall-gallery {
     grid-template-columns: 1fr;
+  }
+
+  .legal-footer {
+    width: calc(100% - 24px);
   }
 }
