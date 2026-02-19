@@ -154,6 +154,10 @@ app.post('/api/bookings', (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`Cinema app is running on http://localhost:${PORT}`);
-});
+if (process.env.VERCEL) {
+  module.exports = app;
+} else {
+  app.listen(PORT, () => {
+    console.log(`Cinema app is running on http://localhost:${PORT}`);
+  });
+}
