@@ -175,6 +175,10 @@ main {
   margin-bottom: 34px;
 }
 
+.booking {
+  padding-top: 14px;
+}
+
 .section-head {
   margin-bottom: 16px;
 }
@@ -446,6 +450,12 @@ main {
   cursor: pointer;
 }
 
+.acquiring-note {
+  margin: 2px 2px 0;
+  color: #ff6868;
+  font-size: 13px;
+}
+
 .result {
   min-height: 20px;
   margin-top: 10px;
@@ -557,7 +567,17 @@ main {
 
 @media (max-width: 720px) {
   .movie-grid {
-    grid-template-columns: 1fr;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 84%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 4px;
+  }
+
+  .movie-card {
+    scroll-snap-align: start;
   }
 
   .hero {

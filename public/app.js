@@ -204,23 +204,13 @@ formEl.addEventListener('submit', async (event) => {
     return;
   }
 
-  const name = document.getElementById('name').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const card = document.getElementById('card').value.replace(/\s+/g, '');
-
-  if (card.length < 12) {
-    resultEl.textContent = 'Проверь номер карты.';
-    resultEl.classList.add('err');
-    return;
-  }
-
   const payload = {
     showtimeId: selectedShowtime.showtimeId,
     seats: selectedSeats,
     customer: {
-      name,
-      email,
-      cardLast4: card.slice(-4)
+      name: 'Клиент',
+      email: 'noreply@cinema.legend',
+      cardLast4: '0000'
     }
   };
 
@@ -243,7 +233,6 @@ formEl.addEventListener('submit', async (event) => {
   resultEl.textContent = `Успех. Бронь ${data.bookingId}. Сумма: ${formatPrice(data.total)}.`;
   resultEl.classList.add('ok');
   selectedSeats = [];
-  formEl.reset();
   await loadSeats(selectedShowtime.showtimeId);
   updateSummary();
 });
