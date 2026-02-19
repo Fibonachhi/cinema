@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Легендарное кино</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Russo+One&family=Manrope:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="grain"></div>
+
+    <header class="hero" id="top">
+      <nav class="topbar">
+        <div class="brand">ЛЕГЕНДАРНОЕ КИНО</div>
+        <a class="to-booking" href="#booking">Бронирование</a>
+      </nav>
+
+      <div class="hero-content">
+        <p class="badge">Партнер показов: Кинотеатр Мираж</p>
+        <h1>ЛЕГЕНДАРНОЕ КИНО</h1>
+        <p class="lead">Единственные в России, кто показывает в кино самые легендарные фильмы.</p>
+        <p class="vip-note">Формат показа: VIP-зал. Каждый билет = VIP диван для двоих.</p>
+        <p class="address">FORT Отрадное, второй этаж. VIP зал 4 <button id="open-hall-modal" data-open-hall class="text-link" type="button">посмотреть</button></p>
+        <a class="cta" href="#catalog">Смотреть афишу</a>
+      </div>
+      <div class="waves"></div>
+    </header>
+
+    <main>
+      <section class="catalog" id="catalog">
+        <div class="section-head">
+          <h2>Пираты Карибского моря: спецрасписание</h2>
+          <p>Один показ на каждую часть. Билеты продаются заранее.</p>
+        </div>
+        <div id="movie-grid" class="movie-grid"></div>
+      </section>
+
+      <section class="booking" id="booking">
+        <div class="section-head">
+          <h2>VIP-зал: бронирование</h2>
+          <p>Цена одного места: 3500 ₽. Тип места: VIP диван для двоих.</p>
+        </div>
+
+        <div class="booking-layout">
+          <section class="panel" id="schedule-panel">
+            <h3>Расписание</h3>
+            <div id="showtime-list" class="showtime-list"></div>
+          </section>
+
+          <section class="panel" id="seats-panel">
+            <div class="seat-head">
+              <h3>Карта VIP-зала</h3>
+              <button class="text-link" data-open-hall type="button">Посмотреть фото зала</button>
+              <div class="legend">
+                <span class="legend-item"><i class="dot free"></i>Свободно</span>
+                <span class="legend-item"><i class="dot selected"></i>Выбрано</span>
+                <span class="legend-item"><i class="dot occupied"></i>Занято</span>
+              </div>
+            </div>
+            <div id="seat-grid" class="seat-grid"></div>
+            <div class="screen-wrap">
+              <div class="screen">Экран</div>
+            </div>
+          </section>
+
+          <section class="panel" id="checkout-panel">
+            <h3>Оплата</h3>
+            <div id="summary" class="summary">Сначала выбери сеанс</div>
+            <div id="payment-link-box" class="payment-link-box">Выбери фильм, чтобы увидеть ссылку оплаты.</div>
+
+            <form id="checkout-form" class="checkout-form">
+              <input type="text" id="name" placeholder="Имя" required />
+              <input type="email" id="email" placeholder="Email" required />
+              <input type="text" id="card" placeholder="Номер карты" maxlength="19" required />
+              <button type="submit">Оплатить</button>
+            </form>
+
+            <p id="result" class="result"></p>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <div id="hall-modal" class="modal hidden" role="dialog" aria-modal="true" aria-label="Фото VIP зала">
+      <div class="modal-backdrop" id="modal-close-area"></div>
+      <div class="modal-content">
+        <button id="close-hall-modal" class="modal-close" type="button">×</button>
+        <h3>VIP зал 4</h3>
+        <div class="hall-gallery">
+          <img src="/images/picture 1.jpg" alt="Фото VIP зала 1" />
+          <img src="/images/picrture 2.jpg" alt="Фото VIP зала 2" />
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
