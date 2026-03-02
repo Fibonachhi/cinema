@@ -6,10 +6,7 @@
     <title>Легендарное кино</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Russo+One&family=Manrope:wght@400;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -18,44 +15,47 @@
     <header class="hero" id="top">
       <nav class="topbar">
         <div class="brand">ЛЕГЕНДАРНОЕ КИНО</div>
-        <a class="to-booking" href="#booking">Бронирование</a>
+        <a class="to-booking" href="#booking">Купить билет</a>
       </nav>
 
       <div class="hero-content">
-        <p class="badge">Партнер показов: Кинотеатр Мираж</p>
-        <h1>ЛЕГЕНДАРНОЕ КИНО</h1>
-        <p class="lead">Единственные в России, кто показывает в кино самые легендарные фильмы.</p>
-        <p class="vip-note">Формат показа: VIP-зал. Каждый билет = VIP диван для двоих.</p>
-        <p class="address">FORT Отрадное, второй этаж. VIP зал 4 <button id="open-hall-modal" data-open-hall class="text-link" type="button">посмотреть</button></p>
-        <a class="cta" href="#catalog">Смотреть афишу</a>
+        <p class="badge">Закрытый кинопоказ</p>
+        <h1>ПИРАТЫ КАРИБСКОГО МОРЯ — ЧАСТЬ 1</h1>
+        <p class="lead">Только один вечер: 20 марта в 20:00. Два формата зала, лимит мест и премиальный показ.</p>
+        <p class="vip-note">Партнер показа: Кинотеатр Мираж • FORT Отрадное, второй этаж</p>
+        <a class="cta" href="#catalog">Выбрать зал и места</a>
       </div>
       <div class="waves"></div>
     </header>
 
     <main>
+      <section class="notice-strip">
+        <p>С собой можно беслптано проносить свои напитки и свою еду, в самом кинотеатре вы также можете купить попкорн еду и напитки.</p>
+      </section>
+
       <section class="catalog" id="catalog">
         <div class="section-head">
-          <h2>Пираты Карибского моря: спецрасписание</h2>
-          <p>Один показ на каждую часть. Билеты продаются заранее.</p>
+          <h2>Афиша Легендарной Трилогии</h2>
+          <p>Фокус показа: Часть 1. Для части 2 и части 3 продажи открываются за 2 недели до сеанса.</p>
         </div>
         <div id="movie-grid" class="movie-grid"></div>
       </section>
 
       <section class="booking" id="booking">
         <div class="section-head">
-          <h2>VIP-зал: бронирование</h2>
-          <p>Цена одного места: 3500 ₽. Тип места: VIP диван для двоих.</p>
+          <h2>Выбор Зала И Мест</h2>
+          <p>Дата сеанса: <strong>20 марта</strong>, время: <strong>20:00</strong>. Выбери зал 9 или VIP-зал в Отрадном.</p>
         </div>
 
         <div class="booking-layout">
           <section class="panel" id="schedule-panel">
-            <h3>Расписание</h3>
+            <h3>Сеансы И Залы</h3>
             <div id="showtime-list" class="showtime-list"></div>
           </section>
 
           <section class="panel" id="seats-panel">
             <div class="seat-head">
-              <h3>Карта VIP-зала</h3>
+              <h3 id="seat-title">Карта Зала</h3>
               <button class="text-link" data-open-hall type="button">Посмотреть фото зала</button>
               <div class="legend">
                 <span class="legend-item"><i class="dot free"></i>Свободно</span>
@@ -63,7 +63,7 @@
                 <span class="legend-item"><i class="dot occupied"></i>Занято</span>
               </div>
             </div>
-            <div id="seat-grid" class="seat-grid"></div>
+            <div id="seat-grid" class="seat-grid hall-vip"></div>
             <div class="screen-wrap">
               <div class="screen">Экран</div>
             </div>
@@ -71,33 +71,42 @@
 
           <section class="panel" id="checkout-panel">
             <h3>Оплата</h3>
-            <div id="summary" class="summary">Сначала выбери сеанс</div>
-            <div id="payment-link-box" class="payment-link-box">Выбери фильм, чтобы увидеть ссылку оплаты.</div>
+            <div id="summary" class="summary">Выбери зал и сеанс части 1, затем отметь места.</div>
+            <div id="payment-link-box" class="payment-link-box">После выбора мест появится сценарий оплаты.</div>
 
-            <form id="checkout-form" class="checkout-form">
-              <button type="submit">Оплатить</button>
-              <p class="acquiring-note">Ждем пока Альфа Бизнес согласует эквайринг</p>
-            </form>
+            <button id="reserve-btn" class="reserve-btn" type="button">Забронировать места</button>
+            <p class="acquiring-note">Ждем пока Альфа Бизнес согласует эквайринг</p>
 
             <p id="result" class="result"></p>
           </section>
         </div>
       </section>
     </main>
+
     <footer class="legal-footer">
       <p>ИП Смирнов Александр Владимирович, ИНН 771537467564</p>
       <p>Адрес: г.Москва, м.Отрадное, ТЦ Форт</p>
       <p>Телефон службы поддержки: +7 962 999 12 10</p>
     </footer>
 
-    <div id="hall-modal" class="modal hidden" role="dialog" aria-modal="true" aria-label="Фото VIP зала">
+    <div id="hall-modal" class="modal hidden" role="dialog" aria-modal="true" aria-label="Фото залов">
       <div class="modal-backdrop" id="modal-close-area"></div>
       <div class="modal-content">
         <button id="close-hall-modal" class="modal-close" type="button">×</button>
-        <h3>VIP зал 4</h3>
+        <h3>Залы Показа</h3>
         <div class="hall-gallery">
-          <img src="/images/picture 1.jpg" alt="Фото VIP зала 1" />
-          <img src="/images/picrture 2.jpg" alt="Фото VIP зала 2" />
+          <figure>
+            <img src="/images/picture 1.jpg" alt="VIP зал Отрадное фото 1" />
+            <figcaption>VIP-зал Отрадное</figcaption>
+          </figure>
+          <figure>
+            <img src="/images/picrture 2.jpg" alt="VIP зал Отрадное фото 2" />
+            <figcaption>VIP-зал Отрадное</figcaption>
+          </figure>
+          <figure>
+            <img src="/images/zaa9.jpg" alt="Зал 9 Европолис" />
+            <figcaption>Европолис, Зал 9</figcaption>
+          </figure>
         </div>
       </div>
     </div>
